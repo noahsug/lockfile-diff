@@ -1,5 +1,5 @@
 # clean-shrinkwrap-diff
-> Human readable shrinkwrap/package-lock diff
+> human readable shrinkwrap/package-lock diff
 
 Based on `github.com/uber/npm-shrinkwrap` with a few additions:
  * ignores integrity hash noise
@@ -30,7 +30,7 @@ Options:
 ```
 
 ## Example
-*Using git:*
+**Using git:**
 ```
 git diff npm-shrinkwrap.json master
 ```
@@ -62,7 +62,7 @@ index 4b4142c49f63..9f541569ac01 100644
          "@babel/core": "^7.0.0",
 ```
 
-*Using clean-shrinkwrap-diff:*
+**Using clean-shrinkwrap-diff:**
 ```
 clean-shrinkwrap-diff master
 ```
