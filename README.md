@@ -26,7 +26,7 @@ npm-shrinkwrap diff origin/master HEAD --file package-lock.json
 
 Options:
 ```
-    --file     file to parse [defaults to `npm-shrinkwrap.json`]
+    --file, -f     file to parse [defaults to `npm-shrinkwrap.json`]
 ```
 
 ## Example

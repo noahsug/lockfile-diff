@@ -9,13 +9,15 @@ const args = parseArgs(process.argv.slice(2));
 if (args.h || args.help) {
   printHelp();
 } else {
-  if (!('color' in args)) {
+  args.color = args.color || args.c;
+  if (args.color === undefined) {
     args.color = process.stdout.isTTY;
   } else if (args.color === 'false') {
     args.color = false;
   }
 
-  if (!('file' in args)) {
+  args.file = args.file || args.f;
+  if (args.file === undefined) {
     args.file =
       ['npm-shrinkwrap.json', 'package-lock.json'].find((f) => fs.existsSync(f)) ||
       'npm-shrinkwrap.json';
