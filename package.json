@@ -1,0 +1,47 @@
+{
+  "name": "clean-shrinkwrap-diff",
+  "version": "0.0.0",
+  "description": "`git diff` that ignores hash changes",
+  "main": "./index.js",
+  "bin": {
+    "clean-shrinkwrap-diff": "./index.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --quiet . --ext=.js",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "author": "Noah Sugarman <noahsug@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:noahsug/clean-shrinkwrap-diff"
+  },
+  "bugs": {
+    "url": "https://github.com/noahsug/clean-shrinkwrap-diff/issues"
+  },
+  "homepage": "https://github.com/noahsug/clean-shrinkwrap-diff#readme",
+  "keywords": [
+    "diff",
+    "hash",
+    "integrity",
+    "ignore"
+  ],
+  "dependencies": {
+    "json-diff": "^0.5.4",
+    "minimist": "^1.2.0",
+    "run-parallel": "^1.1.9",
+    "safe-json-parse": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.2",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3"
+  }
+}
