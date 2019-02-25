@@ -1,6 +1,6 @@
 {
   "name": "clean-shrinkwrap-diff",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "`git diff` that ignores hash changes",
   "main": "./index.js",
   "bin": {
