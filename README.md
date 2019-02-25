@@ -1,7 +1,9 @@
 # clean-shrinkwrap-diff
 > Human readable shrinkwrap/package-lock diff
 
-Based on `github.com/uber/npm-shrinkwrap`, but ignores integrity hash noise
+Based on `github.com/uber/npm-shrinkwrap` with a few additions:
+ * ignores integrity hash noise
+ * supports `package-lock.json`
 
 ## Install
 ```
@@ -11,6 +13,20 @@ npm i -g clean-shrinkwrap-diff
 ## Usage
 ```
 clean-shrinkwrap-diff [OldShaOrFile] [NewShaOrFile]
+```
+
+For example
+```
+npm-shrinkwrap diff origin/master
+```
+
+```
+npm-shrinkwrap diff origin/master HEAD --file package-lock.json
+```
+
+Options:
+```
+    --file     file to parse [defaults to `npm-shrinkwrap.json`]
 ```
 
 ## Example
