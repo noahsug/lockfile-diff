@@ -5,7 +5,7 @@ const jsonParse = require('safe-json-parse');
 const parallel = require('run-parallel');
 const path = require('path');
 
-const readJSON = require('./read-json');
+const readJSON = require('./readJson');
 
 function purgeEmptyDeps(diff) {
   if (!diff || Object.keys(diff).length === 0) return null;
