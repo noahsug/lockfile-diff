@@ -1,6 +1,6 @@
 {
   "name": "clean-shrinkwrap-diff",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "human readable shrinkwrap / package-lock diff",
   "main": "./src/index.js",
   "bin": {
