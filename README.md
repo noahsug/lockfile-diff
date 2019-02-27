@@ -76,10 +76,10 @@ lockfile-diff master
  {
    dependencies: {
      fast-replace: {
--      "version": "0.51.16",
--      "integrity": "sha1-7HC1yvewi9BFMkF5vP+PRw8oQ54=",
-+      "version": "0.51.17",
-+      "integrity": "sha1-SCU1fIF/sMYkGjsspmhvrZ+ZhHQ=",
+-      version: "0.51.16",
+-      integrity: "sha1-7HC1yvewi9BFMkF5vP+PRw8oQ54=",
++      version: "0.51.17",
++      integrity: "sha1-SCU1fIF/sMYkGjsspmhvrZ+ZhHQ=",
      }
    }
  }
