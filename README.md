@@ -21,15 +21,18 @@ lockfile-diff origin/master --no-color
 ```
 
 ```
-lockfile-diff origin/master HEAD --lockfile package-lock.json
+lockfile-diff 'master@{2 days ago}' master
 ```
 
 Options:
 ```
-  --color, -c     whether to print with color                    [default: true]
-  --lockfile, -f  lockfile to parse                 [default: existing lockfile]
-  --help          Show help                                            [boolean]
-  --version       Show version number                                  [boolean]
+  [oldShaOrFile]  defaults to "HEAD"
+  [newShaOrFile]  defaults to existing lockfile or `--lockfile`
+
+  --color, -c     whether to print with color                      [default: true]
+  --lockfile, -f  lockfile to parse                   [default: existing lockfile]
+  --help          Show help                                              [boolean]
+  --version       Show version number                                    [boolean]
 ```
 
 ## Example

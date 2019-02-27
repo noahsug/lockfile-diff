@@ -21,7 +21,7 @@ function gitShow(sha, { lockfile }, callback) {
   }
 
   exec(
-    `git show ${sha}:${lockfile}`,
+    `git show '${sha}':${lockfile}`,
     {
       maxBuffer: 10000 * 1024,
     },
