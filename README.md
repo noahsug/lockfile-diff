@@ -1,4 +1,4 @@
-# clean-shrinkwrap-diff
+# lockfile-diff
 > human readable npm-shrinkwrap and package-lock diff
 
 Based on [uber/npm-shrinkwrap](https://github.com/uber/npm-shrinkwrap) with a few additions:
@@ -7,21 +7,21 @@ Based on [uber/npm-shrinkwrap](https://github.com/uber/npm-shrinkwrap) with a fe
 
 ## Install
 ```
-npm i -g clean-shrinkwrap-diff
+npm i -g lockfile-diff
 ```
 
 ## Usage
 ```
-clean-shrinkwrap-diff [OldShaOrFile] [NewShaOrFile]
+lockfile-diff [OldShaOrFile] [NewShaOrFile]
 ```
 
 For example
 ```
-clean-shrinkwrap-diff origin/master
+lockfile-diff origin/master
 ```
 
 ```
-clean-shrinkwrap-diff origin/master HEAD --lock-file-name package-lock.json
+lockfile-diff origin/master HEAD --lock-file-name package-lock.json
 ```
 
 Options:
@@ -30,7 +30,7 @@ Options:
     --color, -c    whether to print with color [defaults to `stdout.isTTY`]
 ```
 
-To negate an option, pass `no-` before it. For example: `clean-shrinkwrap-diff --no-color`
+To negate an option, pass `no-` before it. For example: `lockfile-diff --no-color`
 
 ## Example
 **Using git:**
@@ -65,9 +65,9 @@ index 4b4142c49f63..9f541569ac01 100644
          "@babel/core": "^7.0.0",
 ```
 
-**Using clean-shrinkwrap-diff:**
+**Using lockfile-diff:**
 ```
-clean-shrinkwrap-diff master
+lockfile-diff master
 ```
 
 ```diff
