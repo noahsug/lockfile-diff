@@ -17,11 +17,11 @@ lockfile-diff [OldShaOrFile] [NewShaOrFile]
 
 For example
 ```
-lockfile-diff origin/master
+lockfile-diff origin/master --no-color
 ```
 
 ```
-lockfile-diff origin/master HEAD --lock-file-name package-lock.json
+lockfile-diff origin/master HEAD --lockfile package-lock.json
 ```
 
 Options:
@@ -31,8 +31,6 @@ Options:
   --help          Show help                                            [boolean]
   --version       Show version number                                  [boolean]
 ```
-
-To negate an option, pass `no-` before it. For example: `lockfile-diff --no-color`
 
 ## Example
 **Using git:**
