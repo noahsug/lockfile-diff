@@ -1,24 +1,25 @@
 {
-  "name": "clean-shrinkwrap-diff",
+  "name": "lockfile-diff",
   "version": "0.0.3",
   "description": "human readable shrinkwrap / package-lock diff",
   "main": "./src/index.js",
   "bin": {
-    "clean-shrinkwrap-diff": "./bin/index.js"
+    "lockfile-diff": "./bin/index.js"
   },
   "scripts": {
+    "test": "jest",
     "lint": "eslint --quiet . --ext=.js",
     "lint:fix": "npm run lint -- --fix"
   },
   "author": "Noah Sugarman <noahsug@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:noahsug/clean-shrinkwrap-diff"
+    "url": "git@github.com:noahsug/lockfile-diff"
   },
   "bugs": {
-    "url": "https://github.com/noahsug/clean-shrinkwrap-diff/issues"
+    "url": "https://github.com/noahsug/lockfile-diff/issues"
   },
-  "homepage": "https://github.com/noahsug/clean-shrinkwrap-diff#readme",
+  "homepage": "https://github.com/noahsug/lockfile-diff#readme",
   "keywords": [
     "diff",
     "hash",
@@ -28,10 +29,10 @@
   "dependencies": {
     "graceful-fs": "^4.1.15",
     "json-diff": "^0.5.4",
-    "minimist": "^1.2.0",
     "msee": "^0.3.5",
     "run-parallel": "^1.1.9",
-    "safe-json-parse": "^4.0.0"
+    "safe-json-parse": "^4.0.0",
+    "yargs": "^13.2.1"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
@@ -42,6 +43,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.2",
+    "jest": "^24.1.0",
+    "mock-fs": "^4.8.0",
     "prettier": "^1.15.3"
   }
 }

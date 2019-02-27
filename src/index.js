@@ -1,31 +1,30 @@
-const parseArgs = require('minimist');
+const yargs = require('yargs');
 const fs = require('graceful-fs');
 
-const printHelp = require('./printHelp');
-const cleanShrinkwrapDiff = require('./cleanShrinkwrapDiff');
+const lockfileDiff = require('./lockfileDiff');
 
-const args = parseArgs(process.argv.slice(2));
-
-if (args.h || args.help) {
-  printHelp();
-} else {
-  args.color = args.color || args.c;
-  if (args.color === undefined) {
-    args.color = process.stdout.isTTY;
-  } else if (args.color === 'false') {
-    args.color = false;
-  }
-
-  args.file = args.file || args.f;
-  if (args.file === undefined) {
-    args.file =
-      ['npm-shrinkwrap.json', 'package-lock.json'].find((f) => fs.existsSync(f)) ||
-      'npm-shrinkwrap.json';
-  }
-
-  cleanShrinkwrapDiff(args)
-    .then((diff) => {
-      console.log(diff);
-    })
-    .catch((e) => console.error(e));
+function getDefaultLockFile() {
+  const lockFiles = ['npm-shrinkwrap.json', 'package-lock.json'];
+  return lockFiles.find((f) => fs.existsSync(f)) || lockFiles[0];
 }
+
+const args = yargs
+  .command('$0 [oldShaOrFile] [newShaOrFile]', 'print human readable shrinkwrap/package-lock diff')
+  .options({
+    color: { alias: 'c', default: process.stdout.isTTY, describe: 'whether to print with color' },
+    lockfile: { alias: 'f', default: getDefaultLockFile(), describe: 'lockfile to parse' },
+  })
+  .help().argv;
+
+if (!args.oldShaOrFile) {
+  args.oldShaOrFile = args.lockfile;
+}
+if (!args.newShaOrFile) {
+  args.newShaOrFile = 'HEAD';
+}
+
+lockfileDiff(args)
+  .then((diff) => {
+    console.log(diff);
+  })
+  .catch((e) => console.error(e));
