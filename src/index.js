@@ -9,18 +9,39 @@ function getDefaultLockFile() {
 }
 
 const args = yargs
-  .command('$0 [oldShaOrFile] [newShaOrFile]', 'print human readable shrinkwrap/package-lock diff')
+  .command(
+    '$0 [oldShaOrFile] [newShaOrFile]',
+    'print human readable shrinkwrap/package-lock diff',
+    (cmd) => {
+      cmd.positional('oldShaOrFile', {
+        type: 'string',
+        default: 'HEAD',
+      });
+      cmd.positional('newShaOrFile', {
+        type: 'string',
+        describe: 'defaults to existing lockfile or --lockfile',
+      });
+    },
+  )
   .options({
-    color: { alias: 'c', default: process.stdout.isTTY, describe: 'whether to print with color' },
-    lockfile: { alias: 'f', default: getDefaultLockFile(), describe: 'lockfile to parse' },
+    color: {
+      alias: 'c',
+      default: process.stdout.isTTY,
+      describe: 'whether to print with color',
+    },
+    lockfile: {
+      alias: 'f',
+      default: getDefaultLockFile(),
+      describe: 'lockfile to parse',
+    },
   })
   .help().argv;
 
 if (!args.oldShaOrFile) {
-  args.oldShaOrFile = args.lockfile;
+  args.oldShaOrFile = 'HEAD';
 }
 if (!args.newShaOrFile) {
-  args.newShaOrFile = 'HEAD';
+  args.newShaOrFile = args.lockfile;
 }
 
 lockfileDiff(args)

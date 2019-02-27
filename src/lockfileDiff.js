@@ -97,7 +97,7 @@ function run(options) {
       [
         isLockfile(oldShaOrFile)
           ? readJSON.bind(null, path.resolve(process.cwd(), oldShaOrFile))
-          : gitShow.bind(null, newShaOrFile, options),
+          : gitShow.bind(null, oldShaOrFile, options),
         isLockfile(newShaOrFile)
           ? readJSON.bind(null, path.resolve(process.cwd(), newShaOrFile))
           : gitShow.bind(null, newShaOrFile, options),

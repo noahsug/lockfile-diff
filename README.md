@@ -1,5 +1,5 @@
 # lockfile-diff
-> human readable npm-shrinkwrap and package-lock diff
+> human readable npm shrinkwrap and package-lock diff
 
 Based on [uber/npm-shrinkwrap](https://github.com/uber/npm-shrinkwrap) with a few additions:
  * supports `package-lock.json`
@@ -26,8 +26,10 @@ lockfile-diff origin/master HEAD --lock-file-name package-lock.json
 
 Options:
 ```
-    --file, -f     file to parse [defaults to `npm-shrinkwrap.json`]
-    --color, -c    whether to print with color [defaults to `stdout.isTTY`]
+  --color, -c     whether to print with color                    [default: true]
+  --lockfile, -f  lockfile to parse                 [default: existing lockfile]
+  --help          Show help                                            [boolean]
+  --version       Show version number                                  [boolean]
 ```
 
 To negate an option, pass `no-` before it. For example: `lockfile-diff --no-color`
