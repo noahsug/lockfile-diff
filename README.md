@@ -73,7 +73,6 @@ lockfile-diff master
 ```
 
 ```diff
-@@ -3893,9 +3893,9 @@
  {
    dependencies: {
      fast-replace: {

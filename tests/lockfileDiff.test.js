@@ -13,6 +13,7 @@ it('diffs two npm-shrinkwrap files', async () => {
           resolved: 'https://registry.npmjs.org/dep/-/dep-0.0.1.tgz',
           integrity:
             'sha512-jrsuseXBo8pN197KnDwhhaaBzyZr2oicLHHTt2oDdQrej4Qp57dCCJafWx5ivU8/alEYDpssYqv1MUqcxwQlrA==',
+          dev: true,
         },
       },
     }),
@@ -24,6 +25,7 @@ it('diffs two npm-shrinkwrap files', async () => {
           resolved: 'https://registry.npmjs.org/dep/-/dep-0.0.2.tgz',
           integrity:
             'sha512-jRauseaBo8pN197anAwhhaaBzyZr2oicLTHTt2oDdQrej4QF47dCCJafWx5ivU8/alEYDpssYqv1MUqcxwQlrA==',
+          dev: true,
         },
         'new-dep': {
           version: '0.0.2',
