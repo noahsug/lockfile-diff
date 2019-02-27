@@ -1,12 +1,8 @@
 const yargs = require('yargs');
-const fs = require('graceful-fs');
 
-const lockfileDiff = require('./lockfileDiff');
-
-function getDefaultLockFile() {
-  const lockFiles = ['npm-shrinkwrap.json', 'package-lock.json'];
-  return lockFiles.find((f) => fs.existsSync(f)) || lockFiles[0];
-}
+const getExistingLockfileName = require('./getExistingLockfileName');
+const readLockfiles = require('./readLockfiles');
+const diffContent = require('./diffContent');
 
 const args = yargs
   .command(
@@ -19,7 +15,7 @@ const args = yargs
       });
       cmd.positional('newShaOrFile', {
         type: 'string',
-        describe: 'defaults to existing lockfile or --lockfile',
+        describe: 'defaults to existing lockfile or `--lockfile`',
       });
     },
   )
@@ -31,7 +27,7 @@ const args = yargs
     },
     lockfile: {
       alias: 'f',
-      default: getDefaultLockFile(),
+      default: getExistingLockfileName(),
       describe: 'lockfile to parse',
     },
   })
@@ -44,8 +40,11 @@ if (!args.newShaOrFile) {
   args.newShaOrFile = args.lockfile;
 }
 
-lockfileDiff(args)
-  .then((diff) => {
+const { oldShaOrFile, newShaOrFile, lockfile, color } = args;
+
+readLockfiles([oldShaOrFile, newShaOrFile], { lockfile })
+  .then(([oldContent, newContent]) => {
+    const diff = diffContent(oldContent, newContent, { color });
     console.log(diff);
   })
   .catch((e) => console.error(e));

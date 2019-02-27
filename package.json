@@ -2,7 +2,7 @@
   "name": "lockfile-diff",
   "version": "0.0.7",
   "description": "human readable shrinkwrap / package-lock diff",
-  "main": "./src/index.js",
+  "main": "./src/diffContent",
   "bin": {
     "lockfile-diff": "./bin/index.js"
   },
@@ -29,7 +29,6 @@
   "dependencies": {
     "graceful-fs": "^4.1.15",
     "json-diff": "^0.5.4",
-    "msee": "^0.3.5",
     "run-parallel": "^1.1.9",
     "safe-json-parse": "^4.0.0",
     "yargs": "^13.2.1"
@@ -44,7 +43,6 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.2",
     "jest": "^24.1.0",
-    "mock-fs": "^4.8.0",
     "prettier": "^1.15.3"
   }
 }

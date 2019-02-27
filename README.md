@@ -82,3 +82,12 @@ lockfile-diff master
    }
  }
 ```
+
+## API
+
+```
+const lockfileDiff = require('lockfile-diff');
+
+const diff = lockfileDiff(oldLockfileJson, newLockfileJson, { color: true });
+console.log(diff);
+```
