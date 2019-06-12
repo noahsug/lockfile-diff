@@ -1,6 +1,6 @@
 {
   "name": "lockfile-diff",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "human readable shrinkwrap / package-lock diff",
   "main": "./src/diffContent",
   "bin": {
