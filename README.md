@@ -21,7 +21,7 @@ lockfile-diff origin/master --no-color
 ```
 
 ```
-lockfile-diff 'master@{2 days ago}' master
+lockfile-diff 'master@{2 days ago}' my-branch
 ```
 
 Options:
