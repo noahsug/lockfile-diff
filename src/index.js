@@ -5,6 +5,23 @@ const readLockfiles = require('./readLockfiles');
 const diffContent = require('./diffContent');
 
 const args = yargs
+  .options({
+    ignoreDev: {
+      default: false,
+      boolean: true,
+      describe: 'do not diff dev deps'
+    },
+    ignoreDelete: {
+      default: false,
+      boolean: true,
+      describe: 'do not show deleted packages'
+    },
+    depth: {
+      default: 0,
+      number: true,
+      describe: 'the depth to diff too'
+    }
+  })
   .command(
     '$0 [oldShaOrFile] [newShaOrFile]',
     'print human readable shrinkwrap/package-lock diff',
@@ -20,6 +37,10 @@ const args = yargs
     },
   )
   .options({
+    ignoreDev: {
+      default: false,
+      describe: 'do not diff dev deps'
+    },
     color: {
       alias: 'c',
       default: process.stdout.isTTY,
@@ -40,11 +61,15 @@ if (!args.newShaOrFile) {
   args.newShaOrFile = args.lockfile;
 }
 
-const { oldShaOrFile, newShaOrFile, lockfile, color } = args;
+const {
+  oldShaOrFile, newShaOrFile, lockfile, color, ignoreDev, ignoreDelete, depth
+} = args;
 
 readLockfiles([oldShaOrFile, newShaOrFile], { lockfile })
   .then(([oldContent, newContent]) => {
-    const diff = diffContent(oldContent, newContent, { color });
+    const diff = diffContent(oldContent, newContent, {
+      color, ignoreDev, ignoreDelete, depth
+    });
     console.log(diff);
   })
   .catch((e) => console.error(e));
